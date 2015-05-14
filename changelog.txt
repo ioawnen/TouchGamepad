@@ -1,0 +1,80 @@
+USE GIT COMMITS YA DINGUS.
+
+
+
+/*******************CAPTAINS LOG*************************\
+01/03/14 - Tom
+experimented with sendkeys, doesnt properly emulate keyboard input, so was written off entirely
+button variables will be mapped to hex keycodes in some form.
+
+01/03/14 - Ian
+	- Started work on setting button mappings to work with user settings.
+	- Typed keycodes until my fingers bled.
+	- Set correct image center locations for correct transforms/scales.
+	- Started control scaling framework.
+	- Removed stray asyncs that were throwing warnings at build.
+	- Set options menu to exit on main window close.
+
+	FOR TOM:
+	- I'm thinking of making the options menu an overlay for MainWindow instead of it being 
+	in its own sepearate class.
+	- For now I wouldn't fuck with the options menu. It's not like there aren't enough
+	other jobs to do.
+
+ 	
+
+02/03/14 - Tom
+
+	 - Added in methods for L1/L2/R1/R2 and assigned their buttons to invoke them
+	 - Changed the values for keys in the settings file to make testing a bit easier for me (change them back if this is an issue for you)
+	 - added in the labels and combo boxes for all of the keymappings, upkey is the only one to have this populated, but mapping keys to up button works great!
+	 - All of the other keys have methods setup to have the assign the keys properly, the only thing I haven't done is setup combo box population
+
+	
+
+	FOR IAN
+	- Okay, I did fuck with the options menu to see how we were going to handle key assignments (which i did, yay me!) if you really want to move it to main 
+	window, I guess we can, but I think a seperate menu is nicer for now, while we are still setting stuff up, functionality is better than sexiness right now.
+	- I saw your little slider thing to change button scale, that shit is pretty cool yo!
+	- I mentioned that I only populated the combo box for the up key (0-9 and A-Z) for one button, populating the listbox took over 30 lines of code, add up all
+	the buttons and its erm.... alot. There has to be an easier way to do this, look at optionWindows.xaml.cs and you'll see what i mean.
+
+03/03/14 - Tom
+
+	- Added in the rest of the key code mappings in the press/release functions, made a start on including them in the array, but cba atm.
+	- fixed the l1/l2 r1/r2 scaling issue, just don't ask.
+
+03/03/14 - Ian
+	- Tinkered with scaling some more:
+		- Cleaned up centre points to a point where i'm almost happy with them.
+		- Made some methods that let you scale abxy, dpad, and centre button elements seperatly.
+		- MainWindow on initialising will grab the scaling settings and set the UI accordingly.
+	
+	- OptionWindow:
+		- Switched to using an array to hold combobox values to make life infinitely simpler.
+		- Key binding comboboxes now grab previous values from settings and set them as the selected value when first initialised. 
+		  It would be a good idea to have this happen again if the user presses cancel to revert changes.
+
+04/03/14 - Tom
+
+	- Changed TouchUp to TouchLeave, in order to allow the user to hold down and drag their finger away without the KillTouch Function being evaded
+	- changed scaling of individual buttons to single canvas, this is commented out till I fuck with the render origins tommorrow.
+	
+	FOR IAN
+		-touchX Bounds: 7 - 1285  (1278px)
+		touchY Bounds: -207- 591 (798px)
+	
+		Dell fucking lied to me, and im mad about my 4 pixels, moreso as to why they don't start from 0.
+
+
+04/03/14 - Tom
+
+	- added in the onOkay values for the keybindings so they are set when the user clicks okay (it was previously making the user set them twice, check 
+	the toDoList as there is a bug with the upButton Default Value.
+
+
+
+07/03/14 - Tom
+
+	- Finally added in the rest of the key codes from the MSDN, some symbols will have to be discounted as they are OEM dependant (the dell tab interprets many of the keycodes as /)
+	- all keycodes have been added, but only 50% have been tested.

@@ -1,0 +1,23 @@
+USE GITHUB ISSUES YA DINGUS
+
+
+
+Stuff to do:
+
+Major:
+
+		- FullScreen Overlay:
+		- Work out solution to allow app to overlay fullscreen aplications, DirectDraw applications already seemingly work without any extra work, however DirectX and OpenGL seem to require alot more work.
+
+		- Overhaul directional pad buttons
+
+DONE 03/03/14	- Implement key bindings in the options menu 
+DONE 02/03/14	- Assign the correct onTouch events for L1,L2,R1,R2. This shouldn't take more than 15mins. 
+Update: 07/03/14 - Add in the rest of the virtual keycodes (Just need testing)
+
+
+Minor:
+	- up key binding isnt defaulting properly to 'w'
+	- Custom user button images / overlays.
+DONE	- Fix the menu button, currently on touchscreen, it has to be held down to get it to stay open.
+DONE	- Find a way to populate the combo boxes for the key mappings without having to do a list of 30+ for each Key, Ian you mentioned something about an array?
